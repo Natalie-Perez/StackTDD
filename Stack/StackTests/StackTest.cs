@@ -50,5 +50,26 @@ namespace StackTests
             s.Push(3);
             Assert.Throws<ExceededSizeException>(() => s.Push(4));
         }
+
+        // Peek the last element to see if stack is empty
+        [Test]
+        public void Peek_Exception()
+        {
+            Stack<int> s = new Stack<int>(3);
+            Assert.Throws<ExpenditureProhibitedException>(() => s.Peek());
+        }
+
+        [Test]
+        public void Peek_Element()
+        {
+            Stack<int> s = new Stack<int>(3);
+
+            s.Push(1);
+            s.Push(2);
+            int value = s.Peek();
+
+            Assert.AreEqual(2, value);
+            Assert.AreEqual(2, s.Size);
+        }
     }
 }
